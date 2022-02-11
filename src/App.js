@@ -1,29 +1,42 @@
 import { useState } from "react";
+import sentence from "./sentence";
 import "./App.css";
 
 function App() {
-  const [Login, setLogin] = useState(false);
-  const [button,setButton] = useState(true)
+  const [login, setLogin] = useState(false);
+  // const [button, setButton] = useState(true);
+  const [sentence, setSentence] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        &nbsp;
-        <h1>{Login?'welcome back!':'Please Login'}</h1>
+      <h1>{login === true ? "welcome back!" : "Please Login"}</h1>
 
-        <div className="backgroundStyle">
-        {button&&<button onClick={() => {
-          setLogin(true);
-          setButton(false)
-        }}>login</button>}
-        
-        {!button&&<button onClick={() => {
-          setLogin(false)
-          setButton(true)
-          }}>logout</button>}
-        </div>
+      {!Login && (
+        <button
+          onClick={() => {
+            setLogin(true);
+            setButton(false);
+            setSentence(true);
+          }}
+        >
+          login
+        </button>
+      )}
 
-         
-      </header>
+      {Login && (
+        <button
+          onClick={() => {
+            setLogin(false);
+            setButton(true);
+            setButton(false);
+          }}
+        >
+          logout
+        </button>
+      )}
+
+      <button>btn</button>
+
+      {!sentence ? <sentence /> : ""}
     </div>
   );
 }
