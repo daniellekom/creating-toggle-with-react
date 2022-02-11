@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <h1>{login === true ? "welcome back!" : "Please Login"}</h1>
 
-      {!Login && (
+      {!login && (
         <button
           onClick={() => {
             setLogin(true);
